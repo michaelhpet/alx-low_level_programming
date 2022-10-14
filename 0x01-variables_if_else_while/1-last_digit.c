@@ -19,8 +19,6 @@ int main(void)
 	n = rand() - RAND_MAX / 2;
 	last_digit = n % 10;
 
-	last_digit = last_digit > 0 ? last_digit : last_digit * -1;
-
 	if (last_digit > 5)
 	{
 		printf(greater_than_5, n, last_digit);
