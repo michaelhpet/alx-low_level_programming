@@ -6,33 +6,37 @@
  */
 int main(void)
 {
-	int i;
+	unsigned long i, j, _j, tmp_j, k, _k, tmp_k, tmp, _tmp, bil = 1000000000;
 
-	unsigned long j, k, tmp;
-
-	for (i = 1, j = 1, k = 2; i < 99; i++)
+	for (i = 1, j = 1, k = 2; i < 91; i++)
 	{
 		if (i == 1)
 			printf("%d", i);
-		else if (i == 2)
-			printf("%d", i);
-		/*else if (i > 92)
-		{
-			printf("%.0Lf", (j + k) / 10);
-			printf("%.0Lf", (j + k) % (long double)10);
-			tmp = j;
-			j = k;
-			k += tmp;
-		}*/
 		else
 		{
-			printf("%lu", j + k);
+			printf("%lu", k);
 			tmp = j;
 			j = k;
 			k += tmp;
 		}
+		printf(", ");
+	}
 
-		if (i < 98)
+	tmp_j = j, tmp_k = k;
+	j /= bil, k /= bil, _j = tmp_j % bil, _k = tmp_k % bil;
+
+	for (i = 0; i < 8; i++)
+	{
+		printf("%lu", k + (_k / bil));
+		printf("%lu", _k % bil);
+		tmp = j;
+		j = k;
+		k += tmp;
+		_tmp = _j;
+		_j = _k;
+		_k += _tmp;
+
+		if (i != 7)
 			printf(", ");
 	}
 
