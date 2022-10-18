@@ -7,17 +7,17 @@
  */
 int main(void)
 {
-	unsigned long i, j, k, tmp;
+	unsigned long long i, j, k, tmp;
 
 	for (i = 1, j = 1, k = 2; i < 99; i++)
 	{
 		if (i == 1)
-			printf("%lu", i);
+			printf("%llu", i);
 		else if (i == 2)
-			printf("%lu", i);
+			printf("%llu", i);
 		else
 		{
-			printf("%lu", j + k);
+			printf("%llu", j + k);
 			tmp = j;
 			j = k;
 			k += tmp;
