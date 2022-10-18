@@ -20,9 +20,13 @@ void times_table(void)
 				_putchar((value / 10) + 48);
 				_putchar((value % 10) + 48);
 			}
-			else
+			else if (col != 0)
 			{
 				_putchar(32);
+				_putchar(value + 48);
+			}
+			else
+			{
 				_putchar(value + 48);
 			}
 
