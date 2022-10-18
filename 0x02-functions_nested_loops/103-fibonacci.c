@@ -9,7 +9,7 @@ int main(void)
 {
 	int i;
 	unsigned long fibs[32];
-	int sum = 0;
+	unsigned long sum = 0;
 
 	for (i = 1; i < 34; i++)
 	{
