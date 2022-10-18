@@ -17,7 +17,6 @@ void print_times_table(int n)
 			for (col = 0; col < (n + 1); col++)
 			{
 				value = row * col;
-
 				if (value > 99)
 				{
 					_putchar((value / 100) + 48);
@@ -40,14 +39,12 @@ void print_times_table(int n)
 				{
 					_putchar(value + 48);
 				}
-
 				if (col < n)
 				{
 					_putchar(44);
 					_putchar(32);
 				}
 			}
-
 			_putchar(10);
 		}
 	}
