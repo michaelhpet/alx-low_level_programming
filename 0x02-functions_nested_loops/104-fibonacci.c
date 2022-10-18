@@ -7,23 +7,23 @@
  */
 int main(void)
 {
-	unsigned long i, j, k, tmp;
+	long double i, j, k, tmp;
 
 	for (i = 1, j = 1, k = 2; i < 99; i++)
 	{
 		if (i == 1)
-			printf("%lu", i);
+			printf("%.0Lf", i);
 		else if (i == 2)
-			printf("%lu", i);
+			printf("%.0Lf", i);
 		else
 		{
-			printf("%lu", j + k);
+			printf("%.0Lf", j + k);
 			tmp = j;
 			j = k;
 			k += tmp;
 		}
 
-		if (i < 99)
+		if (i < 98)
 			printf(", ");
 	}
 
