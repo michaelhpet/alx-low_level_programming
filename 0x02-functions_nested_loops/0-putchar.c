@@ -15,7 +15,7 @@ int main(void)
 		_putchar(ascii_array[i]);
 	}
 
-	_putchar(10); // new line
+	_putchar(10);
 
 	return (0);
 }
