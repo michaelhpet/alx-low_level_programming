@@ -18,13 +18,13 @@ void print_times_table(int n)
 			{
 				value = row * col;
 
-				if (value > 100)
+				if (value > 99)
 				{
 					_putchar((value / 100) + 48);
 					_putchar(((value / 10) % 10) + 48);
 					_putchar((value % 10) + 48);
 				}
-				else if (value > 10)
+				else if (value > 9)
 				{
 					_putchar(32);
 					_putchar((value / 10) + 48);
