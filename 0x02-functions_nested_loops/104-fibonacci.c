@@ -13,9 +13,9 @@ int main(void)
 	for (i = 1, j = 1, k = 2; i < 100; i++)
 	{
 		if (i == 1)
-			printf("%lu", 1);
+			printf("%lu", i);
 		else if (i == 2)
-			printf("%lu", 2);
+			printf("%lu", i);
 		else
 		{
 			printf("%lu", j + k);
