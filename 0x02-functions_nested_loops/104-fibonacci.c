@@ -11,7 +11,7 @@ int main(void)
 	for (i = 1, j = 1, k = 2; i < 91; i++)
 	{
 		if (i == 1)
-			printf("%d", i);
+			printf("%lu", i);
 		else
 		{
 			printf("%lu", k);
