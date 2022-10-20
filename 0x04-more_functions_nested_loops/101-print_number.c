@@ -1,6 +1,4 @@
 #include "main.h"
-#include <limits.h>
-#include <stdio.h>
 
 /**
  * print_number - prints an integer
@@ -10,40 +8,39 @@
 void print_number(int n)
 {
 	int i, digits;
-	unsigned int num;
+	double tmp_n;
+	unsigned int big_n;
 
+	tmp_n = n;
 	if (n < 0)
 	{
 		_putchar(45);
 		n *= -1;
+		tmp_n *= -1;
 	}
 
-	num = n;
-	digits = count_digits(n);
-
-	if (num < 10)
-		_putchar(num + 48);
-	else if (num > 9 && num < 100)
+	big_n = tmp_n;
+	digits = count_digits(big_n);
+	if (big_n < 10)
+		_putchar(big_n + 48);
+	else if (big_n > 9 && big_n < 100)
 	{
-		_putchar((num / 10) + 48);
-		_putchar((num % 10) + 48);
+		_putchar((big_n / 10) + 48);
+		_putchar((big_n % 10) + 48);
 	}
-	else if (num > 99 && num < 1000)
+	else if (big_n > 99 && big_n < 1000)
 	{
-		_putchar((num / 100) + 48);
-		_putchar(((num / 10) % 10) + 48);
-		_putchar((num % 10) + 48);
+		_putchar((big_n / 100) + 48);
+		_putchar(((big_n / 10) % 10) + 48);
+		_putchar((big_n % 10) + 48);
 	}
 	else
 	{
-		_putchar((num / _pow(10, digits - 1)) + 48);
+		_putchar((big_n / _pow(10, digits - 1)) + 48);
 		for (i = (digits - 2); i > 0; i--)
-			_putchar(((num / _pow(10, i)) % 10) + 48);
-		_putchar((num % 10) + 48);
+			_putchar(((big_n / _pow(10, i)) % 10) + 48);
+		_putchar((big_n % 10) + 48);
 	}
-
-	printf("Negative limit: %i", INT_MIN);
-	printf("Positive limit: %i", INT_MAX);
 }
 
 /**
@@ -51,19 +48,18 @@ void print_number(int n)
  * @number: integer which digits to count
  * Return: number of digits in n
  */
-int count_digits(int number)
+int count_digits(unsigned int number)
 {
 	int digits;
 
-	double n = number;
-	unsigned int n_tmp = n;
+	unsigned int tmp = number;
 
-	digits = (n > 9) ? 2 : 1;
+	digits = (number > 9) ? 2 : 1;
 
-	while ((n_tmp / 10) > 9)
+	while ((tmp / 10) > 9)
 	{
 		digits++;
-		n_tmp /= 10;
+		tmp /= 10;
 	}
 
 	return (digits);
