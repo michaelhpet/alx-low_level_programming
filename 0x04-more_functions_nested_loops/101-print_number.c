@@ -18,7 +18,7 @@ void print_number(int n)
 
 	n_tmp = n;
 	digits = n > 9 ? 2 : 1;
-	while ((n_tmp / 10) > 10)
+	while ((n_tmp / 10) > 9)
 	{
 		digits++;
 		n_tmp /= 10;
