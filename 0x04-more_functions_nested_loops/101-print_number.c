@@ -1,4 +1,6 @@
 #include "main.h"
+#include <limits.h>
+#include <stdio.h>
 
 /**
  * print_number - prints an integer
@@ -8,6 +10,7 @@
 void print_number(int n)
 {
 	int i, digits;
+	unsigned int num;
 
 	if (n < 0)
 	{
@@ -15,28 +18,32 @@ void print_number(int n)
 		n *= -1;
 	}
 
+	num = n;
 	digits = count_digits(n);
 
-	if (n < 10)
-		_putchar(n + 48);
-	else if (n > 9 && n < 100)
+	if (num < 10)
+		_putchar(num + 48);
+	else if (num > 9 && num < 100)
 	{
-		_putchar((n / 10) + 48);
-		_putchar((n % 10) + 48);
+		_putchar((num / 10) + 48);
+		_putchar((num % 10) + 48);
 	}
-	else if (n > 99 && n < 1000)
+	else if (num > 99 && num < 1000)
 	{
-		_putchar((n / 100) + 48);
-		_putchar(((n / 10) % 10) + 48);
-		_putchar((n % 10) + 48);
+		_putchar((num / 100) + 48);
+		_putchar(((num / 10) % 10) + 48);
+		_putchar((num % 10) + 48);
 	}
 	else
 	{
-		_putchar((n / _pow(10, digits - 1)) + 48);
+		_putchar((num / _pow(10, digits - 1)) + 48);
 		for (i = (digits - 2); i > 0; i--)
-			_putchar(((n / _pow(10, i)) % 10) + 48);
-		_putchar((n % 10) + 48);
+			_putchar(((num / _pow(10, i)) % 10) + 48);
+		_putchar((num % 10) + 48);
 	}
+
+	printf("Negative limit: %i", INT_MIN);
+	printf("Positive limit: %i", INT_MAX);
 }
 
 /**

@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	print_number(-1000000);
+	print_number(-10900000);
 	_putchar(10);
 	print_number(-349028);
 	_putchar(10);
@@ -35,7 +35,10 @@ int main(void)
 	_putchar(10);
 	print_number(8210182);
 	_putchar(10);
-
+	print_number(-2147483648);
+	_putchar(10);
+	print_number(2147483648);
+	_putchar(10);
 
 	return (0);
 }
