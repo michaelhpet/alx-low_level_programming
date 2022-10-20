@@ -15,7 +15,7 @@ int main(void)
 
 	for (i = 3; i < n_root; i++)
 	{
-		while((n % i == 0) && n != i)
+		while ((n % i == 0) && n != i)
 			n /= i;
 	}
 
