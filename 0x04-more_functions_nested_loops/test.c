@@ -2,9 +2,20 @@
 
 void main(void)
 {
-	int n = 98;
+	double n = 9892652971;
+	unsigned n_tmp = n;
+	int digits;
 
-	char *n_string = (*char)n "\0";
+	if (n > 9)
+		digits = 2;
+	else
+		digits = 1;
 
-	printf("%s", n_string);
+	while ((n_tmp / 10) > 10)
+	{
+		digits++;
+		n_tmp /= 10;
+	}
+
+	printf("Number of digits in %.0f is %i\n", n, digits);
 }
