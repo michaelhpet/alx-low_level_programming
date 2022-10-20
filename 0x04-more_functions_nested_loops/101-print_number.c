@@ -17,12 +17,7 @@ void print_number(int n)
 	}
 
 	n_tmp = n;
-	digits = n > 9 ? 2 : 1;
-	while ((n_tmp / 10) > 9)
-	{
-		digits++;
-		n_tmp /= 10;
-	}
+	digits = count_digits(n_tmp);
 
 	if (n < 10)
 		_putchar(n + 48);
@@ -45,6 +40,30 @@ void print_number(int n)
 		_putchar((n % 10) + 48);
 	}
 }
+
+/**
+ * count_digits - count number of digits of an integer
+ * @number: integer which digits to count
+ * Return: number of digits in n
+ */
+int count_digits(int number)
+{
+	int digits;
+
+	double n = number;
+	unsigned n_tmp = n;
+
+	digits = (n > 9) ? 2 : 1;
+
+	while ((n_tmp / 10) > 9)
+	{
+		digits++;
+		n_tmp /= 10;
+	}
+
+	return (digits);
+}
+
 
 /**
  * _pow - computes the exponential of a number

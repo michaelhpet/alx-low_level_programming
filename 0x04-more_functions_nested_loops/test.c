@@ -2,7 +2,7 @@
 
 void main(void)
 {
-	double n = 100;
+	double n = 91821;
 	unsigned n_tmp = n;
 	int digits;
 
