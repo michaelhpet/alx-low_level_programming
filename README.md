@@ -4,16 +4,12 @@ With a static type system, C is an imperative procedural language that supports 
 
 This project features a chronology of the C Language structure and syntax, from variables to loops, functions, pointers and arrays, memory allocation and so on.
 
-[0x00. C - Hello, World](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x00-hello_world)
+0. [0x00. C - Hello, World](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x00-hello_world)
 
-0.  Write a script that runs a C file through the preprocessor and save the result into another file.
+1. [0x01. C - Variables, If-Else, For, While](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x01-variables_if_else_while)
 
-    > File: `0-preprecessor`
+2. [0x02. C - Functions & Nested loops](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x02-functions_nested_loops)
 
-[0x01. C - Variables, If-Else, For, While](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x01-variables_if_else_while)
+3. [0x03. C - Debugging](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x03-debugging)
 
-[0x02. C - Functions & Nested loops](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x02-functions_nested_loops)
-
-[0x03. C - Debugging](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x03-debugging)
-
-[0x04. C - More functions & Nested loops](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x04-more_functions_nested_loops)
+4. [0x04. C - More functions & Nested loops](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x04-more_functions_nested_loops)
