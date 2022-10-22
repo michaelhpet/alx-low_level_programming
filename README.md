@@ -6,6 +6,10 @@ This project features a chronology of the C Language structure and syntax, from 
 
 0. [0x00. C - Hello, World](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x00-hello_world)
 
+   - Compilation of C programs `gcc`
+   - `main` function
+   - `printf`, `puts`, `putchar`
+
 1. [0x01. C - Variables, If-Else, For, While](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x01-variables_if_else_while)
 
 2. [0x02. C - Functions & Nested loops](https://github.com/michael-peter/alx-low_level_programming/tree/main/0x02-functions_nested_loops)
