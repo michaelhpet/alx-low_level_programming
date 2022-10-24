@@ -24,7 +24,8 @@ int main(void)
 			break;
 		characters_sum += random_character;
 
-		printf("%c", random_character);
+		if (random_character != '\' || random_character != '0')
+			printf("%c", random_character);
 	}
 
 	printf("%c\n", characters_sum_limit - characters_sum);
