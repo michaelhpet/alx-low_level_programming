@@ -7,18 +7,24 @@
  */
 int main(void)
 {
-	int r = 0, c = 0;
-	time_t t;
+	int random_character, characters_sum, characters_sum_limit;
+	time_t time_seed;
 
-	srand((unsigned int) time(&t));
-	while (c < 2772)
+	srand((unsigned int) time(&time_seed));
+
+	characters_sum = 0;
+	characters_sum_limit = (21 * 126);
+
+	while (characters_sum <= characters_sum_limit)
 	{
-		r = rand() % 128;
-		if ((c + r) > 2772)
-			break;
-		c = c + r;
-		printf("%c", r);
+		random_character = rand() % 128;
+		putchar(random_character);
+
+		characters_sum += random_character;
 	}
-	printf("%c\n", (2772 - c));
+
+	putchar(characters_sum_limit - random_character);
+	putchar(10);
+
 	return (0);
 }
