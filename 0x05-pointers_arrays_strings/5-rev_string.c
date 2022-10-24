@@ -1,26 +1,28 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * rev_string - reverses a string
  * @s: pointer to string to reverse
+ * Return: void
  */
 
 void rev_string(char *s)
 {
-	char *tmp_s = NULL;
-	int i, s_len;
+	char tmp;
+	int i, j, s_len;
 
 	s_len = _strlen(s);
-	i = s_len;
+	i = 0;
+	j = s_len / 2;
 
-	_strcpy(tmp_s, s);
-	printf("tmp_s: %s", tmp_s);
-
-	for (; i >= 0; i--)
-		s[s_len - i] = tmp_s[i];
+	for (; j >= 0; j--)
+	{
+		tmp = s[s_len - i - 1];
+		s[s_len - i - 1] = s[i];
+		s[i] = tmp;
+		i++;
+	}
 }
-
 
 /**
  * _strlen - computes the length of a string
@@ -30,31 +32,10 @@ void rev_string(char *s)
 
 int _strlen(char *s)
 {
-	int i = 0;
+	int length = 0;
 
-	while (s[i] != '\0')
-		i++;
+	while (s[length] != '\0')
+		length++;
 
-	return (i);
-}
-
-/**
- * strcpy - copies a string
- * @a: string to copy into
- * @b: string to copy from
- * Return:void
- */
-
-void _strcpy(char *a, char *b)
-{
-	int i = 0;
-
-	while (b[i] != '\0')
-	{
-		a[i] = b[i];
-		i++;
-	}
-	
-	a[i] = '\0';
-	printf("Copied string: %s", a);
+	return (length);
 }
