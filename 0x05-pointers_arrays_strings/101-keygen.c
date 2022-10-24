@@ -25,7 +25,8 @@ int main(void)
 		characters_sum += random_character;
 	}
 
-	printf("%c\n", characters_sum_limit - random_character);
+	putchar(characters_sum_limit - characters_sum);
+	putchar(10);
 
 	return (0);
 }
