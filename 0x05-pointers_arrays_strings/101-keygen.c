@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- * main - generates keygen.
- * Return: 0 Always.
+ * main - generates random valid passwords for the
+ * program 101-crackme
+ * Return: 0 (success)
  */
+
 int main(void)
 {
 	int random_character, characters_sum, characters_sum_limit;
@@ -23,8 +25,7 @@ int main(void)
 		characters_sum += random_character;
 	}
 
-	putchar(characters_sum_limit - random_character);
-	putchar(10);
+	printf("%c\n", characters_sum_limit - random_character);
 
 	return (0);
 }
