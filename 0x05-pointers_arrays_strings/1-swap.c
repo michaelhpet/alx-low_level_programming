@@ -1,5 +1,3 @@
-#include "main.h"
-
 /**
  * swap - swaps the value of two integers
  * @a: first integer
