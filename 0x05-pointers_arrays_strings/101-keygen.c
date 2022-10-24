@@ -24,11 +24,10 @@ int main(void)
 			break;
 		characters_sum += random_character;
 
-		putchar(random_character);
+		printf("%c", random_character);
 	}
 
-	putchar(characters_sum_limit - characters_sum);
-	putchar(10);
+	printf("%c\n", characters_sum_limit - characters_sum);
 
 	return (0);
 }
