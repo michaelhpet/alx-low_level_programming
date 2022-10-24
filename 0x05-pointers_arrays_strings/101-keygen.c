@@ -22,11 +22,9 @@ int main(void)
 		random_character = rand() % 128;
 		if (characters_sum + random_character > characters_sum_limit)
 			break;
-		else
-		{
-			characters_sum += random_character;
-			putchar(random_character);
-		}
+		characters_sum += random_character;
+
+		putchar(random_character);
 	}
 
 	putchar(characters_sum_limit - characters_sum);
