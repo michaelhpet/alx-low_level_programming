@@ -24,7 +24,7 @@ int main(void)
 			break;
 		characters_sum += random_character;
 
-		if (random_character != '\' || random_character != '0')
+		if (random_character != 92)
 			printf("%c", random_character);
 	}
 
