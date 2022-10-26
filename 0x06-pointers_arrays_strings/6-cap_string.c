@@ -8,12 +8,11 @@ char *cap_string(char *s)
 {
 	int i, j;
 
-	int separators[] = {9, 10, 32, 33, 34, 40, 41, 44, 46, 59, 63, 123, 125};
-	int separators_len = 13;
+	char separators[] = " \t\n,;.!?\"(){}";
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; j < separators_len; j++)
+		for (j = 0; separators[j] != '\0'; j++)
 		{
 			if (s[i] == separators[j])
 			{
