@@ -6,17 +6,13 @@
 
 char *leet(char *s)
 {
-	int i, j, s_len;
+	int i, j;
 
 	int tokens[] = {65, 69, 79, 84, 76};
 	int repl[] = {4, 3, 0, 7, 1};
 	int tokens_len = 5;
 
-	s_len = 0;
-	while (s[s_len] != '\0')
-		s_len++;
-
-	for (i = 0; i < s_len; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
 		for (j = 0; j < tokens_len; j++)
 		{
