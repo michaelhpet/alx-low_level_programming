@@ -71,7 +71,7 @@ int char_len(char *s)
 }
 
 /**
- * prepend_sero - prepends zeros to the beginning of a strinf
+ * prepend_zero - prepends zeros to the beginning of a strinf
  * @s: string
  * @dest: pointer to write into
  * @s_len: length of s
