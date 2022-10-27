@@ -18,5 +18,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r);
 int char_len(char *s);
 char *prepend_zero(char *s, char *dest, int s_len, int size);
 char *trim_zero(char *s);
+void print_buffer(char *b, int size);
 
 #endif
