@@ -15,7 +15,8 @@ void print_number(int n);
 int count_digits(unsigned int number);
 int _pow(int base, int exp);
 char *infinite_add(char *n1, char *n2, char *r, int size_r);
-unsigned int char_len(char *s);
-char *prepend_zero(char *s, int s_len, int size);
+int char_len(char *s);
+char *prepend_zero(char *s, char *dest, int s_len, int size);
+char *trim_zero(char *s);
 
 #endif
