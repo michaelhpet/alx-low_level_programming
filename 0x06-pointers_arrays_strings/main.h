@@ -11,5 +11,8 @@ char *string_toupper(char *s);
 char *cap_string(char *s);
 char *leet(char *s);
 char *rot13(char *s);
+void print_number(int n);
+int count_digits(unsigned int number);
+int _pow(int base, int exp);
 
 #endif
