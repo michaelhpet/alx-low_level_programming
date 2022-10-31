@@ -33,9 +33,9 @@ unsigned int _strspn(char *s, char *accept)
  * Return: length of s
  */
 
-int _strlen(char *s)
+unsigned int _strlen(char *s)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
 	while (s[i] != 0)
