@@ -1,5 +1,3 @@
-#include "main.h"
-
 /**
  * _strspn - gets the length of a prefix substring
  * @s: string
@@ -28,21 +26,4 @@ unsigned int _strspn(char *s, char *accept)
 	}
 
 	return (count);
-}
-
-/**
- * _strlen - compute the length of a string
- * @s: string to parse
- * Return: length of s
- */
-
-unsigned int _strlen(char *s)
-{
-	unsigned int i;
-
-	i = 0;
-	while (s[i] != 0)
-		i++;
-
-	return (i);
 }
