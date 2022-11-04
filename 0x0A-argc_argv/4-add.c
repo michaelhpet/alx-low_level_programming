@@ -11,19 +11,28 @@
 
 int main(int argc, char *argv[])
 {
+	int i, sum;
+
 	if (argc < 2)
 	{
 		puts("0");
 		return (0);
 	}
 
-	if (not_digits(argv[1]) || not_digits(argv[2]))
+	sum = 0;
+	for (i = 1; i < argc; i++)
 	{
-		puts("Error");
-		return (1);
+
+		if (not_digits(argv[i]))
+		{
+			puts("Error");
+			return (1);
+		}
+		else
+			sum += atoi(argv[i]);
 	}
 
-	printf("%i\n", atoi(argv[1]) + atoi(argv[2]));
+	printf("%i\n", sum);
 	return (0);
 }
 
