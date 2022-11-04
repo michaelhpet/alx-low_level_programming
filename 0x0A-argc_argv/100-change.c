@@ -1,19 +1,17 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 
 /**
- * main - prints minimum number of coins to make change for cents
+ * main - prints the minimum number of coins to make change for an amount of
+ * money
  * @argc: arguments' count
  * @argv: arguments' vector
- * Return: min coins to make change
+ * Return: minimum number of coins
  */
 
 int main(int argc, char *argv[])
 {
-	int coins[] = {25, 10, 5, 2, 1};
-	int coins_len = 5;
+	int i, cents;
 
 	if (argc != 2)
 	{
@@ -21,41 +19,25 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	if (atoi(argv[1]) < 0)
-		puts("0");
-	else
-		printf("%i\n", min_coins(atoi(argv[1]), coins, coins_len));
-
-	return (0);
-}
-
-/**
- * min_coins - returns minimum number of coins for cents
- * @cents: cents to parse
- * @coins: array of coins
- * @coins_len: length of coins
- * Return: min coins for cent
- */
-
-int min_coins(int cents, int *coins, int coins_len)
-{
-	int i, tcoins, ttcoins;
-
-	if (cents == 0)
-		return (0);
-
-	tcoins = INT_MAX;
-
-	for (i = 0; i < coins_len; i++)
+	i = 0;
+	cents = atoi(argv[1]);
+	while (cents > 0)
 	{
-		if (coins[i] <= cents)
-		{
-			ttcoins = min_coins(cents - coins[i], coins, coins_len);
+		if (cents >= 25)
+			cents -= 25;
+		else if (cents >= 10)
+			cents -= 10;
+		else if (cents >= 5)
+			cents -= 5;
+		else if (cents >= 2)
+			cents -= 2;
+		else if (cents >= 1)
+			cents -= 1;
 
-			if (ttcoins != INT_MAX && ttcoins + 1 < tcoins)
-				tcoins = ttcoins + 1;
-		}
+		i++;
 	}
 
-	return (tcoins);
+	printf("%i\n", i);
+
+	return (0);
 }
