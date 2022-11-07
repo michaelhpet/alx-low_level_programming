@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -17,6 +18,7 @@ char **strtow(char *str)
 		return (NULL);
 
 	word_count = count_words(str);
+	printf("word count: %i\n", word_count);
 	words = malloc(sizeof(char *) * (word_count + 1));
 	if (words == NULL)
 		return (NULL);
@@ -27,7 +29,7 @@ char **strtow(char *str)
 		for (k = curr_k; str[k] != 0; k++)
 		{
 
-			if (str[k - 1] == 32 && str[k] != 32)
+			if (str[k] != 32)
 			{
 				len = spacelen(str + k);
 				word = malloc(sizeof(char) * (len + 1));
@@ -40,10 +42,11 @@ char **strtow(char *str)
 
 				word[j] = 0;
 				words[i] = word;
+				printf("word: %s\n", word);
 				break;
 			}
 		}
-		curr_k += k + 1;
+		curr_k += len + 1;
 	}
 
 	words[i] = NULL;
@@ -64,7 +67,7 @@ int count_words(char *s)
 	length = 0;
 	for (i = 0; s[i] != 0; i++)
 	{
-		if (s[i] == 32 && s[i + 1] != 32 && s[i + 1] != 0)
+		if ((s[i] != 32) && (s[i + 1] == 32 || s[i + 1] == 0))
 			length++;
 	}
 
