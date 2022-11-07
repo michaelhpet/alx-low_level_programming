@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -18,7 +17,6 @@ char **strtow(char *str)
 		return (NULL);
 
 	word_count = count_words(str);
-	printf("word count: %i\n", word_count);
 	words = malloc(sizeof(char *) * (word_count + 1));
 	if (words == NULL)
 		return (NULL);
@@ -42,7 +40,6 @@ char **strtow(char *str)
 
 				word[j] = 0;
 				words[i] = word;
-				printf("word: %s\n", word);
 				break;
 			}
 		}
