@@ -2,10 +2,10 @@
 #include <stdlib.h>
 
 /**
- * str_concat - concatenates all arguments
+ * argstostr - concatenates all arguments
  * @ac: arguments' count
  * @av: arguments' vector
- * 
+ * Return: pointer to new string
  */
 
 char *argstostr(int ac, char **av)
@@ -37,7 +37,6 @@ char *argstostr(int ac, char **av)
 	}
 
 	str[curr_i + j] = 0;
-		
 
 	return (str);
 }
