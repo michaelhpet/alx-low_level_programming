@@ -40,6 +40,7 @@ char **strtow(char *str)
 				break;
 			}
 		}
+
 		curr_k = k + j;
 	}
 
