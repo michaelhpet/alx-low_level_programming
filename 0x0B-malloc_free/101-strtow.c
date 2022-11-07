@@ -26,8 +26,7 @@ char **strtow(char *str)
 	{
 		for (k = curr_k; str[k] != 0; k++)
 		{
-
-			if (str[k] != 32)
+			if (str[k] != 32 && (k == 0 || str[k - 1] == 32))
 			{
 				len = spacelen(str + k);
 				word = malloc(sizeof(char) * (len + 1));
@@ -43,7 +42,8 @@ char **strtow(char *str)
 				break;
 			}
 		}
-		curr_k += len + 1;
+
+		curr_k = k + j;
 	}
 
 	words[i] = NULL;
