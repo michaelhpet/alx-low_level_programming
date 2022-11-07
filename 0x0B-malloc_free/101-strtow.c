@@ -9,19 +9,20 @@
 
 char **strtow(char *str)
 {
-	int i, j, k, curr_k, len, word_count;
-	char *word;
-	char **words;
+	char *word, **words;
+	int i, j, k, len, word_count, curr_k = 0;
 
 	if (str == NULL || *str == 0)
 		return (NULL);
 
 	word_count = count_words(str);
-	words = malloc(sizeof(char *) * (word_count + 1));
+	words = malloc(sizeof(word) * (word_count + 1));
 	if (words == NULL || word_count == 0)
+	{
+		free(words);
 		return (NULL);
+	}
 
-	curr_k = 0;
 	for (i = 0; i < word_count; i++)
 	{
 		for (k = curr_k; str[k] != 0; k++)
@@ -32,7 +33,10 @@ char **strtow(char *str)
 				word = malloc(sizeof(char) * (len + 1));
 
 				if (word == NULL)
+				{
+					free(word);
 					return (NULL);
+				}
 
 				for (j = 0; j < len; j++)
 					word[j] = str[k + j];
@@ -42,12 +46,10 @@ char **strtow(char *str)
 				break;
 			}
 		}
-
 		curr_k = k + j;
 	}
 
 	words[i] = NULL;
-
 	return (words);
 }
 
