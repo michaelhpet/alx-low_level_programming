@@ -34,7 +34,9 @@ char **strtow(char *str)
 
 				if (word == NULL)
 				{
-					free(word);
+					while (i--)
+						free(words[i]);
+					free(words);
 					return (NULL);
 				}
 
