@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdlib.h>
 
 /**
@@ -8,36 +9,43 @@
 
 char **strtow(char *str)
 {
-	int i, j, len, word_count;
+	int i, j, k, curr_k, len, word_count;
 	char *word;
 	char **words;
 
 	word_count = count_words(str);
-	words = malloc(sizeof(char *) * word_count + 1);
+	words = malloc(sizeof(char *) * (word_count + 1));
 	if (words == NULL)
-	{
-		free(words);
 		return (NULL);
-	}
 
-	for (i = 0; str[i] != 0; i++)
+	curr_k = 0;
+	for (i = 0; i < word_count; i++)
 	{
-		if (str[i - 1] == 32)
+		for (k = curr_k; str[k] != 0; k++)
 		{
-			len = spacelen(str + i);
-			word = malloc(sizeof(char) * (len + 1));
-			if (word == NULL)
+
+			if (str[k - 1] == 32 && str[k] != 32)
 			{
-				free(word);
-				return (NULL);
+				len = spacelen(str + k);
+				word = malloc(sizeof(char) * (len + 1));
+
+				if (word == NULL)
+					return (NULL);
+
+				for (j = 0; j < len; j++)
+					word[j] = str[k + j];
+
+				word[j] = 0;
+				words[i] = word;
+				break;
 			}
-			for (j = 0; j < len; j++)
-				word[j] = str[i + j];
-			word[j] = 0;
 		}
+		curr_k += k + 1;
 	}
 
-	words[word_count - 1] = NULL;
+	words[i] = NULL;
+
+	return (words);
 }
 
 /**
@@ -50,9 +58,10 @@ int count_words(char *s)
 {
 	int i, length;
 
+	length = 0;
 	for (i = 0; s[i] != 0; i++)
 	{
-		if (s[i] == 32 && s[i + 1] != 32)
+		if (s[i] == 32 && s[i + 1] != 32 && s[i + 1] != 0)
 			length++;
 	}
 
