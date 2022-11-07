@@ -18,10 +18,7 @@ char **strtow(char *str)
 	word_count = count_words(str);
 	words = malloc(sizeof(word) * (word_count + 1));
 	if (words == NULL || word_count == 0)
-	{
-		free(words);
 		return (NULL);
-	}
 
 	for (i = 0; i < word_count; i++)
 	{
@@ -34,8 +31,12 @@ char **strtow(char *str)
 
 				if (word == NULL)
 				{
-					while (i--)
+					i -= 1;
+					while (i >= 0)
+					{
 						free(words[i]);
+						i--;
+					}
 					free(words);
 					return (NULL);
 				}
