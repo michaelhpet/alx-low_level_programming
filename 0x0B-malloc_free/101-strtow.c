@@ -18,7 +18,7 @@ char **strtow(char *str)
 
 	word_count = count_words(str);
 	words = malloc(sizeof(char *) * (word_count + 1));
-	if (words == NULL)
+	if (words == NULL || word_count == 0)
 		return (NULL);
 
 	curr_k = 0;
