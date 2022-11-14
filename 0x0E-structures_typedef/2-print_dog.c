@@ -24,5 +24,5 @@ void print_dog(struct dog *d)
 	if (d->owner == NULL)
 		puts("Owner: (nil)");
 	else
-		printf("owner: %s\n", d->owner);
+		printf("Owner: %s\n", d->owner);
 }
