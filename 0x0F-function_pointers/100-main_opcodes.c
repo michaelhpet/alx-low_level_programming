@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	}
 
 	self = &main;
-	for (i = 0; i < (bytes - 1); i++)
+	for (i = 0; i < bytes; i++)
 	{
 		printf("%.2x", *(unsigned char *)(self + i));
 
