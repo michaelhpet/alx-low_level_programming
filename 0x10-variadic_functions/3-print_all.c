@@ -9,54 +9,96 @@
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	void arg;
-	unsigned int i, j, format_len;
+	unsigned int i, j;
+	char *delim;
 
 	format_t formats[] = {
-		{"c", char},
-		{"i", int},
-		{"f", float},
-		{"s", char *},
-		{NULL, NULL},
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_string}
 	};
 
 	va_start(args, format);
 
-	format_len = _strlen(format);
-
 	i = 0;
-	while (i < format_len)
+	delim = "";
+	while (format && format[i])
 	{
 		j = 0;
-		while (formats[j].specifier)
+		while(j < 4 && format[i] != formats[j].specifier)
+			j++;
+
+		if (j < 4)
 		{
-			if (format == formats[j].specifier)
-			{
-				arg = va_arg(args, formats[j].type);
-				printf("%%s", formats[j].specifier, arg);
-			}
+			printf("%s", delim);
+			formats[j].printer(args);
+			
+			delim = ", ";
 		}
 
-		if (i < (format_len - 1))
-			printf(", ");
+		i++;
 	}
+
+	va_end(args);
 
 	printf("\n");
 }
 
 /**
- * _strlen - computes the length of a string
- * @s: string which length to compute
- * Return: length of s
+ * print_char - prints a char using a va_list
+ * @:args: variadic args list
 */
-unsigned int _strlen(char *s)
+void print_char(va_list args)
 {
-	unsigned int len;
+	int char_;
 
-	len = 0;
-	while (s[len] != 0)
-		len++;
+	char_ = va_arg(args, int);
 
-	return (len);
+	printf("%c", char_);
 }
 
+/**
+ * print_int - prints an int using a va_list
+ * @args: variadic args list
+*/
+void print_int(va_list args)
+{
+	int int_;
+
+	int_ = va_arg(args, int);
+
+	printf("%d", int_);
+}
+
+/**
+ * print_float - prints a fload using a va_list
+ * @args: variadic args list
+*/
+void print_float(va_list args)
+{
+	double float_;
+
+	float_ = va_arg(args, double);
+
+	printf("%f", float_);
+}
+
+/**
+ * print_string - prints a string using a va_list
+ * @args: variadic args list
+*/
+void print_string(va_list args)
+{
+	char *string;
+
+	string = va_arg(args, char *);
+
+	if (string == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+
+	printf("%s", string);
+}
