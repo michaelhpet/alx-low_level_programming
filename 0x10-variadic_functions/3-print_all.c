@@ -26,14 +26,14 @@ void print_all(const char * const format, ...)
 	while (format && format[i])
 	{
 		j = 0;
-		while(j < 4 && format[i] != formats[j].specifier)
+		while (j < 4 && format[i] != formats[j].specifier)
 			j++;
 
 		if (j < 4)
 		{
 			printf("%s", delim);
 			formats[j].printer(args);
-			
+
 			delim = ", ";
 		}
 
@@ -47,7 +47,7 @@ void print_all(const char * const format, ...)
 
 /**
  * print_char - prints a char using a va_list
- * @:args: variadic args list
+ * @args: variadic args list
 */
 void print_char(va_list args)
 {
