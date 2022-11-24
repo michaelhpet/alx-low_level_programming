@@ -7,14 +7,14 @@
  * @str: string value of new tail
  * Return: pointer to new tail
 */
-*add_node_end(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *tail;
+	list_t *tmp, *tail;
 
-	tmp = malloc(sizeof(list_t));
-	if (tmp == NULL || str == NULL)
+	tail = malloc(sizeof(list_t));
+	if (tail == NULL || str == NULL)
 	{
-		free(tmp);
+		free(tail);
 		return (NULL);
 	}
 
@@ -22,13 +22,17 @@
 	tail->len = strlen(str);
 	tail->next = NULL;
 
-	while (*head)
+	if (*head == NULL)
 	{
-		if (*head->next == NULL)
-			*head->next = tail;
-
-		*head = *head->next;
+		*head = tail;
+		return (*head);
 	}
 
-	return (tail);
+	tmp = *head;
+	while (tmp->next)
+		tmp = tmp->next;
+
+	tmp->next = tail;
+
+	return (*head);
 }
