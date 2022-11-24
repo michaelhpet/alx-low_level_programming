@@ -5,7 +5,7 @@
  * @h: head of list
  * Return: number of nodes (or elements) in h
 */
-size_t print_list(const list_t *h)
+size_t list_len(const list_t *h)
 {
 	size_t count;
 
