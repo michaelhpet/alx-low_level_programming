@@ -1,5 +1,5 @@
-; My first Assembly program
-; Really excited
+; My first assembly program
+; Very excited
 
 ; Author: Michael Peter
 ; Date: Nov 24, 2022
@@ -13,15 +13,15 @@ section .text
 		push rbp
 		mov rdi, format
 		mov rsi, greeting
-		mov rax, 0x00
+		mov rax, 0x0
 		call printf
 		pop rbp
-		mov rax, 0x00
+		mov rax, 0x0
 		ret
 
 section .data
-	greeting: db "Hello, Holbeton", 0x00
-	format: db "%s", 0x0A, 0x00
+	greeting: db "Hello, Holberton", 0x0
+	format: db "%s", 0xA, 0x0
 
 
-; Maybe create a compiler soon, lol
+; Next project: custom compiler, lol...
