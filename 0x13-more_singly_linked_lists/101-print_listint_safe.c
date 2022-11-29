@@ -36,7 +36,7 @@ size_t print_listint_safe(const listint_t *head)
 }
 
 /**
- * print_list - returns total unique nodes in a linked list
+ * list_len - returns total unique nodes in a linked list
  * @head: head of list
  * Return: length of unique elements of list
 */
