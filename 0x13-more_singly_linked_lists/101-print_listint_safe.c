@@ -9,25 +9,20 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t count;
-	long int ptr_diff;
 
-	if (head == NULL)
-		exit(98);
-
+	count = 0;
 	while (head)
 	{
-		ptr_diff = head - head->next;
-		count++;
-
-		printf("[%p] %d\n", (void *)head, head->n);
-
-		if (ptr_diff > 0)
-			head = head->next;
+		if (head == head->next)
+			continue;
+		
+		if (head->next)
+			printf("[%p] %d\n", (void *)head, head->n);
 		else
-		{
-			printf("-> [%p] %d\n", (void *)head->next, (head->next)->n);
-			break;
-		}
+			printf("-> [%p] %d\n", (void *)head, head->n);
+
+		head = head->next;
+		count++;
 	}
 
 	return (count);
