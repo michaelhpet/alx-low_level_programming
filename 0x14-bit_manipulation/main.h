@@ -8,5 +8,6 @@ unsigned int _pow(unsigned int base, unsigned int exp);
 int is_not_bin(const char *s);
 void print_binary(unsigned long int n);
 int get_bit(unsigned long int n, unsigned int index);
+unsigned int count_bits(unsigned int num);
 
 #endif /* _MAIN_H_ */
