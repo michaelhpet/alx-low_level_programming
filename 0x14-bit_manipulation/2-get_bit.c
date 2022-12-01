@@ -12,6 +12,9 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned int i, bits;
 	unsigned long int *nums;
 
+	if (index >= (sizeof(unsigned long int) * 8)
+			return (-1);
+
 	bits = count_bits(n);
 	nums = malloc(sizeof(unsigned long int) * bits);
 	if (nums == NULL)
