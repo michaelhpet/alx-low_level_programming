@@ -2,7 +2,7 @@
  * clear_bit - sets the value of a bit to 0 at a given index
  * @n: decimal number to parse
  * @index: index of bit to set
- * Return 1 (success), -1 otherwise
+ * Return: 1 (success), -1 otherwise
 */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
