@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * binary_to_uint - converts a binary number to an unsigned int
  * @b: binary number string
@@ -5,7 +7,10 @@
 */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int bits, result;
+	unsigned int i, bits, result;
+
+	if (!b || is_not_bin(b))
+		return (0);
 
 	bits = _strlen(b);
 	result = 0;
@@ -17,6 +22,26 @@ unsigned int binary_to_uint(const char *b)
 	}
 
 	return (result);
+}
+
+/**
+ * is_not_bin - checks if one or more char in binary string is not 0 or 1
+ * @s: string to parse
+ * Return: 1 (if not binary), 0 otherwise
+*/
+int is_not_bin(const char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] < 48 || s[i] > 49)
+			return (1);
+		i++;
+	}
+
+	return (0);
 }
 
 /**
@@ -41,7 +66,7 @@ unsigned int _strlen(const char *s)
  * @exp: exponent
  * Return: base raised to power exp
 */
-unsigned int(unsigned int base, unsigned int exp)
+unsigned int _pow(unsigned int base, unsigned int exp)
 {
 	unsigned int i, result;
 
