@@ -5,5 +5,6 @@ unsigned int binary_to_uint(const char *b);
 unsigned int _strlen(const char *s);
 unsigned int _pow(unsigned int base, unsigned int exp);
 int is_not_bin(const char *s);
+void print_binary(unsigned long int n);
 
 #endif /* _MAIN_H_ */
