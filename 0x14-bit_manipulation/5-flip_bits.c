@@ -7,15 +7,15 @@
 */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int count;
+	unsigned int xor_bits, count;
 
+	xor_bits = n ^ m;
 	count = 0;
-	while (n <= m)
+	while (xor_bits > 0)
 	{
-		if (n == m)
-			break;
-		n |= 1;
-		count++;
+		count += xor_bits & 1;
+		xor_bits >>= 1;
 	}
 
 	return (count);
+}
