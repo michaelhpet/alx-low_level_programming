@@ -9,52 +9,25 @@
 */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int i, bits;
-	unsigned long int *nums;
+	int bits;
 
 	if (index >= (sizeof(unsigned long int) * 8))
 			return (-1);
 
-	bits = count_bits(n);
-	nums = malloc(sizeof(unsigned long int) * bits);
-	if (nums == NULL)
-		return (-1);
+	/* left shift creates a bit mask
+	 * meaning all 0s but 1 at index of interest
+	 * then, 'bitwise and' uses the mask
+	 * to get the bit at that index
+	*/
+	bits = n & (1 << index);
 
-	i = 0;
-	while (n > 0)
-	{
-		nums[i++] = n % 2;
-		n /= 2;
-	}
-
-	for (i = 0; i < bits; i++)
-	{
-		if (i == index)
-			return (nums[i]);
-	}
-
-	free(nums);
-	return (-1);
-}
-
-/**
- * count_bits - return number of binary digits for an integer
- * @num: integer to parse
- * Return: number of bits in num binary representation
-*/
-unsigned int count_bits(unsigned int num)
-{
-	unsigned int count;
-
-	if (num == 0 || num == 1)
+	/*
+	 * if bit at said index is not 0,
+	 * then it has to be 1 (which will evaluate
+	 * to a number greater than 0 in decimal)
+	*/
+	if (bits > 0)
 		return (1);
 
-	count = 0;
-	while (num > 0)
-	{
-		num /= 2;
-		count++;
-	}
-
-	return (count);
+	return (bits);
 }
