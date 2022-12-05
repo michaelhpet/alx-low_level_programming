@@ -18,6 +18,7 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 
 	w_count = write_to_file(fd, text_content);
+	close(fd);
 	if (w_count == -1)
 		return (-1);
 
