@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	fd1 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	while ((r_count = read(fd0, buffer, sizeof(buffer))))
 	{
-		if (write(fd1, buffer, r_count) != r_count || fd0 == -1)
+		if (write(fd1, buffer, r_count) != r_count || fd1 == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
