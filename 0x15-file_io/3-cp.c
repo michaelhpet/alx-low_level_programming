@@ -9,29 +9,24 @@
 int main(int argc, char *argv[])
 {
 	int fd0, fd1;
-	char *err97, *err98, *err99;
-
-	err97 = "Usage: cp file_from file_to\n";
-	err98 = "Error: Can't read from file %s\n";
-	err99 = "Error: Can't write to %s\n";
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, err97);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
 	fd0 = open(argv[1], O_RDONLY);
 	if (fd0 == -1)
 	{
-		_dprintf(STDERR_FILENO, err98, argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
 	fd1 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd1 == -1)
 	{
-		dprintf(STDERR_FILENO, err99, argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		_close_fd(fd0);
 		exit(99);
 	}
@@ -69,12 +64,11 @@ int _copy_to(int in_fd, int out_fd)
 void _close_fd(int fd)
 {
 	int c_ret;
-	char *err = "Error: Can't close fd %d\n";
 
 	c_ret = close(fd);
 	if (c_ret == -1)
 	{
-		dprintf(STDERR_FILENO, err, fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
