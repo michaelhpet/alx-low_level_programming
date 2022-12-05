@@ -2,8 +2,8 @@
 
 /**
  * read_textfile - reads and prints out a text file
- * filename: name of file
- * letters: number of letters to print
+ * @filename: name of file
+ * @letters: number of letters to print
  * Return: number of characters printed
 */
 ssize_t read_textfile(const char *filename, size_t letters)
