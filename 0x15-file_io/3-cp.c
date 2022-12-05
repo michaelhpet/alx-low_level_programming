@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	fd0 = open(argv[1], O_RDONLY);
 	if (fd0 == -1)
 	{
-		dprintf(STDERR_FILENO, err98, argv[1]);
+		_dprintf(STDERR_FILENO, err98, argv[1]);
 		exit(98);
 	}
 
@@ -32,13 +32,13 @@ int main(int argc, char *argv[])
 	if (fd1 == -1)
 	{
 		dprintf(STDERR_FILENO, err99, argv[2]);
-		close_fd(fd0);
+		_close_fd(fd0);
 		exit(99);
 	}
 
-	copy_to(fd0, fd1);
-	close_fd(fd0);
-	close_fd(fd1);
+	_copy_to(fd0, fd1);
+	_close_fd(fd0);
+	_close_fd(fd1);
 	return (0);
 }
 
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
  * @out_fd: fd to copy to
  * Return: 1 (success), -1 otherwise
 */
-int copy_to(int in_fd, int out_fd)
+int _copy_to(int in_fd, int out_fd)
 {
 	ssize_t r_count;
 	char buffer[1024];
@@ -63,10 +63,10 @@ int copy_to(int in_fd, int out_fd)
 }
 
 /**
- * close_fd - closes a file descriptor
+ * _close_fd - closes a file descriptor
  * @fd: file descriptor
 */
-void close_fd(int fd)
+void _close_fd(int fd)
 {
 	int c_ret;
 	char *err = "Error: Can't close fd %d\n";

@@ -12,7 +12,7 @@ int create_file(const char *filename, char *text_content);
 int write_to_file(int fd, char *s);
 unsigned int _strlen(char *s);
 int append_text_to_file(const char *filename, char *text_content);
-int copy_to(int in_fd, int out_fd);
-void close_fd(int fd);
+int _copy_to(int in_fd, int out_fd);
+void _close_fd(int fd);
 
 #endif /* _MAIN_H_ */
