@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	fd1 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd1 = open(argv[2], O_WRONLY | O_APPEND | O_CREAT | O_TRUNC, 0664);
 	if (fd1 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -31,27 +31,32 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	_copy_to(fd0, fd1);
+	_copy_to(fd0, fd1, argv[2]);
 	_close_fd(fd0);
 	_close_fd(fd1);
 	return (0);
 }
 
 /**
- * copy_to - handler function to copy content of a file to another
+ * _copy_to - handler function to copy content of a file to another
  * @in_fd: fd to copy from
  * @out_fd: fd to copy to
+ * @out_file: filename to write to
  * Return: 1 (success), -1 otherwise
 */
-int _copy_to(int in_fd, int out_fd)
+int _copy_to(int in_fd, int out_fd, char *out_file)
 {
-	ssize_t r_count;
+	ssize_t r_count, w_count;
 	char buffer[1024];
 
 	while ((r_count = read(in_fd, buffer, sizeof(buffer))))
 	{
-		if ((write(out_fd, buffer, r_count)) != r_count)
-			return (1);
+		w_count = write(out_fd, buffer, r_count)
+		if (w_count == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", out_file);
+			exit(99);
+		}
 	}
 
 	return (-1);
