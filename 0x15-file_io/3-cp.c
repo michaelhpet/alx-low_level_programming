@@ -52,7 +52,6 @@ int main(int argc, char *argv[])
  * copy_to - handler function to copy content of a file to another
  * @in_fd: fd to copy from
  * @out_fd: fd to copy to
- * @buffer: buffer to use
  * Return: 1 (success), -1 otherwise
 */
 int copy_to(int in_fd, int out_fd)
