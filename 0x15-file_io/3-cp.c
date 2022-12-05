@@ -1,10 +1,4 @@
-#include <fcntl.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-
-int copy_to(int in_fd, int out_fd);
-void close_fd(int fd);
+#include "main.h"
 
 /**
  * main - copies the content of a file to another
