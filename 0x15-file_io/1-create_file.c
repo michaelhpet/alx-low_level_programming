@@ -17,6 +17,12 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
+	if (!text_content)
+	{
+		close(fd);
+		return (1);
+	}
+
 	w_count = write_to_file(fd, text_content);
 	if (w_count == -1)
 		return (-1);
@@ -36,9 +42,6 @@ int write_to_file(int fd, char *s)
 	unsigned int len;
 
 	len = _strlen(s);
-	if (!s)
-		s = "";
-
 	return (write(fd, s, len));
 }
 
