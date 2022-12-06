@@ -45,12 +45,12 @@ int main(int argc, char *argv[])
 */
 int _copy_to(int in_fd, int out_fd)
 {
-	ssize_t r_count, w_count;
+	ssize_t r_count;
 	char buffer[1024];
 
 	while ((r_count = read(in_fd, buffer, sizeof(buffer))))
 	{
-		w_count = write(out_fd, buffer, r_count);
+		write(out_fd, buffer, r_count);
 	}
 
 	return (-1);
