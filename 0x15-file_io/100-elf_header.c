@@ -14,18 +14,13 @@ int main(int argc, char *argv[])
 	Elf64_Ehdr *header;
 
 	if (argc != 2)
-	{
-		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
 		exit(98);
-	}
-
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
-
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (!header)
 	{
@@ -33,7 +28,6 @@ int main(int argc, char *argv[])
 		_close_fd(fd);
 		exit(98);
 	}
-
 	r_count = read(fd, header, sizeof(Elf64_Ehdr));
 	if (r_count == -1)
 	{
@@ -42,9 +36,7 @@ int main(int argc, char *argv[])
 		free(header);
 		exit(98);
 	}
-
 	is_elf(header->e_ident);
-
 	printf("ELF Header:\n");
 	puts_magic(header->e_ident);
 	puts_class(header->e_ident);
@@ -54,7 +46,6 @@ int main(int argc, char *argv[])
 	puts_abi(header->e_ident);
 	puts_type(header->e_type, header->e_ident);
 	puts_entry(header->e_entry, header->e_ident);
-
 	free(header);
 	_close_fd(fd);
 	return (0);
