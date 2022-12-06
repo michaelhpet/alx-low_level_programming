@@ -31,13 +31,7 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	w_count = _copy_to(fd0, fd1);
-	if (w_count == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		_close_fd(fd0);
-		exit(99);
-	}
+	_copy_to(fd0, fd1);
 	_close_fd(fd0);
 	_close_fd(fd1);
 	return (0);
