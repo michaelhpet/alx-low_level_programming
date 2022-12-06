@@ -1,8 +1,13 @@
 #include "main.h"
 #include <elf.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 
+/**
+ * main - displays information contained in the ELF header
+ * at the start of an ELF file
+ * @argc: arguments' count
+ * @argv: arguments' vector
+ * Return: 0 on success, non-zero otherwise
+*/
 int main(int argc, char *argv[])
 {
 	int fd, r_count;
@@ -75,7 +80,7 @@ void is_elf(unsigned char *e_ident)
 	if (!is)
 	{
 		dprintf(STDERR_FILENO, "Not an ELF file\n");
-		exit (98);
+		exit(98);
 	}
 }
 
