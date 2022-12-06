@@ -51,8 +51,6 @@ int _copy_to(int in_fd, int out_fd)
 	while ((r_count = read(in_fd, buffer, sizeof(buffer))))
 	{
 		w_count = write(out_fd, buffer, r_count);
-		if (w_count != r_count)
-			return (1);
 	}
 
 	return (-1);
