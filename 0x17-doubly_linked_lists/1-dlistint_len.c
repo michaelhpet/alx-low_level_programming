@@ -8,7 +8,7 @@
 size_t dlistint_len(const dlistint_t *h)
 {
 	size_t n_nodes;
-	const dlistint_t current;
+	const dlistint_t *current;
 
 	current = h;
 
