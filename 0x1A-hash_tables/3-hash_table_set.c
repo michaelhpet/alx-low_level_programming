@@ -7,8 +7,8 @@
  * @value: the value
  * Return: 1 if successful, 0 otherwise
  */
- int hash_table_set(hash_table_t *ht, const char *key, const char *value)
- {
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+{
 	unsigned long int index;
 	hash_node_t *node;
 
@@ -23,4 +23,4 @@
 	ht->array[index] = node
 
 	return (1);
- }
+}
