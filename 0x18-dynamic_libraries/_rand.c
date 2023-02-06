@@ -1,0 +1,4 @@
+void rand(void)
+{
+	return;
+}
