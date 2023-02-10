@@ -34,7 +34,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(value_dup);
 		return (0);
 	}
-		
+
 	key_dup = strdup(value);
 	if (key_dup == NULL)
 	{
