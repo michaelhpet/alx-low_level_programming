@@ -104,10 +104,11 @@ void add_to_table(shash_table_t *ht, shash_node_t *node)
 		{
 			if (current->sprev)
 				current->sprev->snext = node;
+			else
+				ht->shead = node;
 			node->snext = current;
 			node->sprev = current->sprev;
 			current->sprev = node;
-			ht->shead = node;
 			return;
 		}
 
