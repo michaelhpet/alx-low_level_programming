@@ -94,7 +94,7 @@ void add_to_table(shash_table_t *ht, shash_node_t *node)
 	{
 		node->sprev = NULL;
 		node->snext = current;
-		ht->shead = node;
+		ht->shead = node, ht->stail = node;
 		return;
 	}
 
