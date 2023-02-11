@@ -33,19 +33,103 @@ shash_table_t *shash_table_create(unsigned long int size)
 
 /**
  * shash_table_set - adds an element to the sorted hash table
+ * @ht: pointer to hash table
  * @key: key of element to add
  * @value: value fof element to add
  * Return: 1 if succeeds, 0 otherwise
  */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
-	
+	unsigned long int index;
+	shash_node_t *node, *current;
+	char *key_dup, *value_dup;
+
+	if (!ht || !key || !key[0] || !value)
+		return (0);
+	index = key_index((const unsigned char *)key, ht->size);
+	value_dup = strdup(value);
+	if (value_dup == NULL)
+		return (0);
+	current = ht->array[index];
+	while (current)
+	{
+		if (strcmp(current->key, key) == 0)
+		{
+			free(current->value);
+			current->value = value_dup;
+			return (1);
+		}
+		current = current->snext;
+	}
+	key_dup = strdup(key);
+	if (key_dup == NULL)
+	{
+		free(value_dup);
+		return (0);
+	}
+	node = malloc(sizeof(shash_node_t));
+	if (node == NULL)
+	{
+		free(key_dup);
+		free(value_dup);
+		return (0);
+	}
+	node->key = key_dup, node->value = value_dup;
+	node->sprev = NULL, node->snext = ht->array[index];
+	if (ht->array[index])
+		ht->array[index]->sprev = node;
+	add_to_table(ht, node);
+	return (1);
+}
+
+/**
+ * add_to_table - adds a node to a sorted hash table
+ * @ht: pointer to hash table
+ * @node: node to add
+ */
+void add_to_table(shash_table_t *ht, shash_node_t *node)
+{
+	shash_node_t *current;
+
+	current = ht->shead;
+	if (current == NULL)
+	{
+		node->sprev = NULL;
+		node->snext = current;
+		ht->shead = node;
+		return;
+	}
+
+	while (current)
+	{
+		if (strcmp(current->key, node->key) > 0)
+		{
+			if (current->sprev)
+				current->sprev->snext = node;
+			node->snext = current;
+			node->sprev = current->sprev;
+			current->sprev = node;
+			ht->shead = node;
+			return;
+		}
+
+		if (current->snext == NULL)
+		{
+			current->snext = node;
+			node->sprev = current;
+			node->snext = NULL;
+			ht->stail = node;
+			return;
+		}
+		current = current->snext;
+	}
 }
 
 /**
  * shash_table_get - retrieves the value associated with a key
  * @ht: pointer to hash table
  * @key: key which value to retrieve
+ * Return: value associated with @key
  */
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {

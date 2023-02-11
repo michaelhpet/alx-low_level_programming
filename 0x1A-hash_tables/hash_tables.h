@@ -86,4 +86,6 @@ void shash_table_print(const shash_table_t *ht);
 void shash_table_print_rev(const shash_table_t *ht);
 void shash_table_delete(shash_table_t *ht);
 
+void add_to_table(shash_table_t *ht, shash_node_t *n);
+
 #endif /* _HASH_TABLES_H_ */
