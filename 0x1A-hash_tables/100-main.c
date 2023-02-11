@@ -61,7 +61,7 @@ int main(void)
 	shash_table_t *ht;
 	int ret;
 
-	ht = shash_table_create(10);
+	ht = shash_table_create(5);
 	ret = shash_table_set(ht, "USA", "Washington");
 	printf("%d\n", ret);
 	ret = shash_table_set(ht, "France", "Paris");

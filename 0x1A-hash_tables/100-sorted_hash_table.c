@@ -75,10 +75,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 	node->key = key_dup, node->value = value_dup;
-	node->sprev = NULL, node->snext = ht->array[index];
-	if (ht->array[index])
-		ht->array[index]->sprev = node;
-	ht->array[index] = node;
+	node->next = ht->array[index], ht->array[index] = node;
 	add_to_table(ht, node);
 	return (1);
 }
